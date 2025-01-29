@@ -1,0 +1,59 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/k3d-io/k3d/main/pkg/config/v1alpha5/schema.json $
+apiVersion: k3d.io/v1alpha5
+kind: Simple
+metadata:
+  name: local-lab-k8s
+servers: 1
+agents: 0
+kubeAPI:
+  host: host.docker.internal
+  hostIP: 0.0.0.0
+  hostPort: "6443"
+ports:
+  - port: "443:443"
+    nodeFilters:
+      - "loadbalancer"
+  - port: "80:80"
+    nodeFilters:
+      - "loadbalancer"
+files:
+  - source: bootstrap/flux-operator/operator-chart.yaml
+    destination: k3s-manifests-custom/operator-chart.yaml
+    nodeFilters:
+    - "server:*"
+registries:
+  create:
+    name: registry
+    host: "0.0.0.0"
+    hostPort: "5000"
+options:
+  k3d: # k3d runtime settings
+    disableLoadbalancer: false # same as `--no-lb`
+    disableImageVolume: false # same as `--no-image-volume`
+  k3s:
+    extraArgs:
+      - arg: "--tls-san=host.docker.internal"
+        nodeFilters:
+          - server:*
+
+  # kubeconfig:
+  #   updateDefaultKubeconfig: false
+  #   switchCurrentContext: false
+  runtime: # runtime (docker) specific options
+    labels:
+      - label: dev.orbstack.domains=*.lab.local
+        nodeFilters:
+          - 'loadbalancer'
+      # - label: devenv.k3d.internal/role=agent
+      #   nodeFilters:
+      #     - 'agent:*'
+      # - label: devenv.k3d.internal/role=server
+      #   nodeFilters:
+      #     - 'server:*'
+      # - label: devenv.k3d.internal/role=loadbalancer
+      #   nodeFilters:
+      #     - 'loadbalancer'
+    # ulimits:
+    #   - name: nofile
+    #     soft: 26677
+    #     hard: 26677

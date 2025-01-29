@@ -1,0 +1,10 @@
+
+[tasks.cluster-create]
+description = "Create k3d cluster"
+run = "k3d cluster create -c k3d.yaml"
+[tasks.cluster-delete]
+description = "Delete k3d cluster"
+run = "k3d cluster delete -c k3d.yaml"
+[tasks.flux-push-artifact]
+description = "Push flux artifact to the registry"
+run ='flux push artifact oci://host.docker.internal:5000/local-lab/local-lab-spec:latest --source "$(git config --get remote.origin.url)" --revision "$(git branch --show-current)@sha1:$(git rev-parse HEAD)"  --path . --ignore-paths infra/bootstrap --ignore-paths components --ignore-paths .git'

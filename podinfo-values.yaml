@@ -1,0 +1,12 @@
+ingress:
+  enabled: true
+  className: traefik
+  hosts:
+    - host: podinfo.lab.local
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+  tls: []
+  #  - secretName: chart-example-tls
+  #    hosts:
+  #      - chart-example.local
