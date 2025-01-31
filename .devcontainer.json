@@ -4,14 +4,4 @@
 	"remoteEnv": {
 		"LOCAL_WORKSPACE_FOLDER": "${localWorkspaceFolder}"
 	},
-	"runArgs": [
-		"--add-host=registry.lab.local:host-gateway"
-	],
-	"customizations": {
-		"vscode": {
-			"extensions": [
-				"weaveworks.vscode-gitops-tools"
-			]
-		}
-	}
 }

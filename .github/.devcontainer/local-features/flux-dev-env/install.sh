@@ -7,3 +7,5 @@ echo "export MISE_GLOBAL_CONFIG_FILE=~/.config/mise/config.toml" >> ${_REMOTE_US
 echo 'source <(mise completion zsh)' >> ${_REMOTE_USER_HOME}/.zshrc
 echo 'eval "$(/usr/local/bin/mise activate --shims)"' >> ${_REMOTE_USER_HOME}/.zshrc
 sudo -u ${_REMOTE_USER} /usr/local/bin/mise install
+sudo -u ${_REMOTE_USER} /usr/local/bin/mise cache clear
+

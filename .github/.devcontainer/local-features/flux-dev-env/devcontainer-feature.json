@@ -6,7 +6,8 @@
 		"vscode": {
 			"extensions": [
         "ms-kubernetes-tools.vscode-kubernetes-tools",
-        "inercia.vscode-k3d"
+        "inercia.vscode-k3d",
+        "weaveworks.vscode-gitops-tools"
       ],
         "settings": {
       }

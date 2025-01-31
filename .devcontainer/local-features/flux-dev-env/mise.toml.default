@@ -1,6 +1,0 @@
-[tools]
-usage = 'latest'
-kubectl = 'latest'
-helm =  'latest'
-flux2 = 'latest'
-k3d = 'latest'
