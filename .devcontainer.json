@@ -1,6 +1,6 @@
 {
 	"name": "Local k8s lab",
-	"image": "ghcr.io/artgur/local-lab-k8s:latest",
+	"image": "ghcr.io/artgur/local-lab-k8s/lab:latest",
 	"remoteEnv": {
 		"LOCAL_WORKSPACE_FOLDER": "${localWorkspaceFolder}"
 	},
