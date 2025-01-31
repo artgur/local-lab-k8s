@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+#MISE description="Push artifact"
+#MISE env={WORKSPACE = "{{cwd}}"}
+
+set -euo pipefail
+
+OCI_REPO_URL=oci://${OCI_REPO_HOST}:${OCI_REPO_PORT}/${OCI_REPO_NAME}:${OCI_REPO_TAG}
+
+SOURCE_ORIGIN=file://${WORKSPACE}
+SOURCE_REVISION="$(git branch --show-current)@sha1:$(git rev-parse HEAD)"
+OCI_REPO_URL=oci://${OCI_REPO_HOST}:${OCI_REPO_PORT}/${OCI_REPO_NAME}:${OCI_REPO_TAG}
+
+flux push artifact ${OCI_REPO_URL} --source ${SOURCE_ORIGIN} --revision ${SOURCE_REVISION} --path ./manifests/

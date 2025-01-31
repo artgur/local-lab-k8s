@@ -1,0 +1,34 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: podinfo-spec
+  namespace: flux-system
+data:
+  HELM_NAMESPACE_NAME: podinfo
+  HELM_RELEASE_NAME: podinfo
+  HELM_REPO_NAME: podinfo
+  HELM_REPO_URL: https://stefanprodan.github.io/podinfo
+  HELM_REPO_TYPE: default
+  HELM_CHART_NAME: podinfo
+  HELM_CHART_VERSION: "6.7.x"
+  values: |
+    ui:
+      color: "#34577c"
+      message: "Hello kaiten user!"
+      logo: "https://files.kaiten.ru/static/logo.svg"
+    ingress:
+      enabled: true
+      className: "traefik"
+      hosts:
+        - host: host.docker.internal
+          paths:
+            - path: /
+              pathType: ImplementationSpecific
+        - host: podinfo.localhost
+          paths:
+            - path: /
+              pathType: ImplementationSpecific
+        - host: podinfo.lab.local
+          paths:
+            - path: /
+              pathType: ImplementationSpecific

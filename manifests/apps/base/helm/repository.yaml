@@ -1,0 +1,12 @@
+# yaml-language-server $schema=https://raw.githubusercontent.com/fluxcd-community/flux2-schemas/main/helmrepository-source-v1.json
+---
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: HelmRepository
+metadata:
+  name: ${HELM_REPO_NAME}
+  namespace: flux-system
+spec:
+  interval: 30m0s
+  timeout: 3m0s
+  url: ${HELM_REPO_URL}
+  type: ${HELM_REPO_TYPE}

@@ -1,0 +1,3 @@
+resources:
+  - spec.yaml
+  - sync.yaml

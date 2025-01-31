@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#MISE description="Reconcile artifact"
+set -euo pipefail
+flux reconcile source oci flux-system

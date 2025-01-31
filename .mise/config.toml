@@ -1,0 +1,21 @@
+
+[env]
+OCI_REPO_HOST = "registry.lab.local"
+OCI_REPO_PORT = "5050"
+OCI_REPO_NAME = "ckuster-spec"
+OCI_REPO_TAG = "latest"
+OCI_REPO_URL = "oci://{{env.OCI_REPO_HOST}}:{{env.OCI_REPO_PORT}}/{{env.OCI_REPO_NAME}}:{{env.OCI_REPO_TAG}}"
+
+[tasks]
+[tasks.cluster-create]
+description = "Create k3d cluster"
+run = "k3d cluster create -c k3d.yaml"
+env.K3D_FIX_MOUNTS = 1
+env.K3D_FIX_DNS = 1
+env.K3D_FIX_CGROUPV2 = 1
+dir = "{{ cwd }}/bootstrap"
+[tasks.cluster-delete]
+description = "Delete k3d cluster"
+alias = "cluster:delete"
+run = "k3d cluster delete -c k3d.yaml"
+dir = "{{ cwd }}/bootstrap"
