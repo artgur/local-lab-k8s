@@ -2,7 +2,7 @@
 [env]
 OCI_REPO_HOST = "registry.lab.local"
 OCI_REPO_PORT = "5050"
-OCI_REPO_NAME = "ckuster-spec"
+OCI_REPO_NAME = "cluster-spec"
 OCI_REPO_TAG = "latest"
 OCI_REPO_URL = "oci://{{env.OCI_REPO_HOST}}:{{env.OCI_REPO_PORT}}/{{env.OCI_REPO_NAME}}:{{env.OCI_REPO_TAG}}"
 
