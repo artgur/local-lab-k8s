@@ -4,4 +4,14 @@
 	"remoteEnv": {
 		"LOCAL_WORKSPACE_FOLDER": "${localWorkspaceFolder}"
 	},
+	"runArgs": [
+		"--add-host=reg.lab.local:host-gateway",
+		"--add-host=k8s.lab.local:host-gateway",
+		"--add-host=app.lab.local:host-gateway"
+	],
+	"forwardPorts": [
+        "8000",
+        "6443"
+	]
+
 }
