@@ -1,6 +1,6 @@
 {
 	"name": "Local k8s lab",
-	"image": "ghcr.io/artgur/local-lab-k8s/lab:latest",
+	"image": "ghcr.io/artgur/local-lab-k8s/devcontainer:latest",
 	"remoteEnv": {
 		"LOCAL_WORKSPACE_FOLDER": "${localWorkspaceFolder}"
 	},
@@ -11,7 +11,8 @@
 	],
 	"forwardPorts": [
         "8000",
-        "6443"
+        "6443",
+        "5000"
 	]
 
 }
