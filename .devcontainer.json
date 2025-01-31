@@ -1,0 +1,17 @@
+{
+	"name": "Local k8s lab",
+	"image": "ghcr.io/artgur/local-lab-k8s:latest",
+	"remoteEnv": {
+		"LOCAL_WORKSPACE_FOLDER": "${localWorkspaceFolder}"
+	},
+	"runArgs": [
+		"--add-host=registry.lab.local:host-gateway"
+	],
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"weaveworks.vscode-gitops-tools"
+			]
+		}
+	}
+}
